@@ -1,0 +1,39 @@
+/*mint-ui样式设置*/
+[data-dpr="1"] #address .picker .picker-items .picker-slot{
+		font-size:12px;
+}
+[data-dpr="2"] #address .picker .picker-items .picker-slot{
+	font-size:24px;
+}
+[data-dpr="3"] #address .picker .picker-items .picker-slot{
+	font-size:36px;
+}
+#address .picker{
+	background-color:#fbf9fe;
+}
+[data-dpr="1"]  .mint-toast-text{
+	font-size:12px;
+}
+[data-dpr="2"]  .mint-toast-text{
+	font-size:24px;
+}
+[data-dpr="3"]  .mint-toast-text{
+	font-size:36px;
+}
+#revise-address .picker{
+	background-color:#fbf9fe;
+}
+[data-dpr="1"] #revise-address .picker .picker-items .picker-slot{
+		font-size:12px;
+}
+[data-dpr="2"] #revise-address .picker .picker-items .picker-slot{
+	font-size:24px;
+}
+[data-dpr="3"] #revise-address .picker .picker-items .picker-slot{
+	font-size:36px;
+}
+
+#revise-address .v-modal{
+	height:20rem;
+}
+

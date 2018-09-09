@@ -1,0 +1,295 @@
+//浏览器自带样式清除，设置全部页面可多次复用样式
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html{
+   height: 100%;
+}
+body {
+    overflow-x: hidden;
+    margin:0 auto;
+   height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: 400;
+    margin:0;
+ 
+}
+
+ol,
+ul,
+li {
+    list-style: none
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+i,
+var {
+    font-style: normal;
+    font-weight: 400
+}
+
+fieldset,
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+textarea {
+    resize: none
+}
+
+a {
+    /*color: #000;*/
+    text-decoration: none
+}
+
+p {
+    max-height: 100%;
+}
+
+input,
+select,
+textarea {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: 0;
+    border:solid 1px #CCCCCC;
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+}
+
+button {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: 0;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.bold {
+    font-weight: 600
+}
+
+.pull-left {
+    float: left
+}
+
+.pull-right {
+    float: right
+}
+
+.clearfix {
+    clear: both;
+}
+
+.radius50 {
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.positionCenterLeft {
+    left: 0;
+    right: 0;
+    margin: auto
+}
+
+.positionCenterTop {
+    top: 0;
+    bottom: 0;
+    margin: auto
+}
+
+.positionCenter {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto
+}
+.disnone{
+    display: none;
+}
+.disblock{
+    display: block;
+}
+.disinline-block{
+    display: inline-block;
+}
+.disinline{
+    display: inline;
+}
+.distable {
+    display: table
+}
+
+.distablecell {
+    display: table-cell;
+    vertical-align: middle
+}
+
+//兼容华为手机的flex布局
+.disflex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: -moz-box;
+    /* Firefox 19 */
+    display: flex;
+}
+
+.justifyCenter {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+}
+
+.justifyBetween {
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+}
+
+.justifyAround {
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    -webkit-box-pack: justify;
+}
+
+.alignCenter {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.textels {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.marginCenter {
+    margin: 0 auto
+}
+
+.text_l {
+    text-align: left
+}
+
+.text_c {
+    text-align: center
+}
+
+.text_r {
+    text-align: right
+}
+
+.unLine {
+    text-decoration: underline
+}
+
+.fiexd {
+    position: fixed
+}
+
+.absolute {
+    position: absolute
+}
+
+.relative {
+    position: relative
+}
+
+.over-hidden {
+    overflow: hidden
+}
+
+.hidden {
+    display: none
+}
+
+
+
+
+.pointer {
+    cursor: pointer
+}
+.clear:after {
+content: "";
+display: block;
+height: 0;
+clear: both;
+}
+.text-overflow{
+      overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.column{
+    flex-direction: column;
+}
+.text-overflow-three{
+      overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.text-overflow-two{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.flex-one{
+    flex:1;
+}
+.flex-shrink{
+        flex-shrink: 0;
+}
+.flex-wrap{
+   flex-wrap: wrap;
+}
+.font-size-zero{
+    font-size:0;
+}
+.flex-end{
+     justify-content: flex-end;
+    -webkit-justify-content: flex-end;
+    
+}
+
+.flex-start{
+     justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+}

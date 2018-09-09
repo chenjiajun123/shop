@@ -1,0 +1,17 @@
+/*swiper样式设置*/
+#swiper-one .swiper-pagination-bullets {
+	bottom: 0.266666rem;
+}
+#swiper-one .swiper-pagination-bullets .swiper-pagination-bullet{
+	width: 0.2rem;
+	height: 0.2rem;
+	background-color: #7ea2c7;
+	margin-right: 0.266666rem;
+	margin-left:0;
+}
+#swiper-one .swiper-pagination-bullets .swiper-pagination-bullet:last-child{
+	margin-right: 0;
+}
+#swiper-one .swiper-pagination-bullets .swiper-pagination-bullet-active{
+	background-color:#0752a5;
+}
