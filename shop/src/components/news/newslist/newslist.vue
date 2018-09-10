@@ -6,7 +6,7 @@
 				<h1 class="font14 col-black">{{item.title}}</h1>
 				<span class="font12 mgt20 col-ssgray">{{item.Date}}</span>
 				<p class="font12 col-mmgray text-overflow-three relative">{{item.cparagraph}}
-					<router-link :to ="{ path:'/newsDetails:id', query:{ id:item.id }}" class="col-mmgray font12 details">详情>></router-link>
+					<router-link :to="{ path:'/newsDetails:id', query:{ id:item.id }}" class="col-mmgray font12 details">详情>></router-link>
 				</p>
 			</li>
 		</ul>
@@ -20,14 +20,12 @@
 			return {
 				newslist: [],
 				showAll: false,
-				
+
 			}
 		},
 		created: function() {
 			this.$ajax.get('/newslist').then((res) => {
-				
 				this.newslist = res.data[0].newslist
-
 			}).catch((err) => {
 				console.log(err)
 			})
@@ -39,24 +37,22 @@
 
 		},
 		computed: {
-			
-			showlist:function(){
-				if(this.showAll==false){
-					let showlist=[];
-					if(this.newslist.length>3){
-						for(let i=0;i<3;i++){
+			showlist: function() {
+				if(this.showAll == false) {
+					let showlist = [];
+					if(this.newslist.length > 3) {
+						for(let i = 0; i < 3; i++) {
 							showlist.push(this.newslist[i])
 						}
-					}
-					else{
-						showlist=this.newslist
+					} else {
+						showlist = this.newslist
 					}
 					return showlist
-				}else{
+				} else {
 					return this.newslist
 				}
 			},
-			
+			//点击加载更多数据
 		},
 		filters: {
 

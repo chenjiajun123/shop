@@ -31,7 +31,9 @@ Vue.use(Router)
 const router = new Router({
 	linkActiveClass: 'active',
 	linkExactActiveClass: 'active',
-	mode: 'hash',
+	//mode模式
+	 mode: 'hash',
+	//切换路由回到顶部
 	scrollBehavior(to, from, savedPosition) {
       if (savedPosition) {
           return savedPosition
@@ -42,6 +44,9 @@ const router = new Router({
           }
       }
   },
+  //requiresAuth记录路由信息
+  //keepAlive是否缓存
+  //isBack是否返回
 	routes: [
 		{
 			path: '/',

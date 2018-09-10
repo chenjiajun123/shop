@@ -1,3 +1,4 @@
+//购物模块
 import { Toast } from 'mint-ui'
 const state={
 	shop:[]

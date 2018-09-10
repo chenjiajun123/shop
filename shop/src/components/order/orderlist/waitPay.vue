@@ -28,7 +28,7 @@
 		},
 		created: function() {
 			this.waitpay = this.$store.state.payFailureModule.payFailure
-			console.log(this.orderFailure)
+			
 		},
 		mounted: function() {
 

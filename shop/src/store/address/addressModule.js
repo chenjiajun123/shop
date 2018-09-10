@@ -1,3 +1,4 @@
+//地址模块
 const state = {
 	address: []
 }

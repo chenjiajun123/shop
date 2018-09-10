@@ -1,10 +1,12 @@
 <template>
 	<div id="news-details">
 		<v-head></v-head>
+		<!--新闻细节标题部分-->
 		<div class="pdtb20 disflex justifyCenter alignCenter bg-dblue news-details-title relative">
 			<h1 class="font18 col-bai disflex alignCenter"><img src="../../assets/images/icon-news.png" class="mgr10 icon-news-title">新闻介绍</h1>
 			<a class="arrow-left" @touchstart="routerBack"><img src="../../assets/images/arrow-left.png"></a>
 		</div>
+		<!--新闻细节内容部分-->
 		<div class="details-content pdlr20">
 			<h1 class="content-title pdtb20 font16 text_c title-border col-dgray bold">{{item.title}}</h1>
 			<p class="content-cparagraph pdtb20 text-indent font12 col-dgray">{{item.cparagraph}}</p>
@@ -33,11 +35,12 @@
 				item: {}
 			}
 		},
-		created: function() {},
+		created: function() {
+			
+		},
 		mounted: function() {
 			this.$ajax.post('/newsDetails', {
 				id: this.$route.query.id,
-
 			}).then((res) => {
 				this.item = res.data.newsDetails[0]
 			}).catch((err) => {
@@ -49,6 +52,7 @@
 			routerBack() {
 				this.$router.go(-1);
 			}
+			//arrow返回事件
 		},
 		computed: {
 

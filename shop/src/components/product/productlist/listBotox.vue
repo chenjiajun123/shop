@@ -48,8 +48,9 @@
 				} else {
 					return this.productListThree
 				}
-				console.log(showlist)
+				
 			},
+			//商品列表展示
 		},
 		filters: {
 

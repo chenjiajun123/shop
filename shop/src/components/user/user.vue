@@ -1,10 +1,12 @@
 <template>
 	<div id="user">
 		<v-head></v-head>
+		<!--个人中心标题部分-->
 		<div class="pdtb20 disflex justifyCenter alignCenter bg-dblue user-title relative">
 			<h1 class="font18 col-bai disflex alignCenter"><img src="../../assets/images/icon-user-one.png" class="mgr10 icon-user-title">会员中心</h1>
 			<a class="arrow-left" @touchstart="routerBack"><img src="../../assets/images/arrow-left.png"></a>
 		</div>
+		<!--个人中心内容部分-->
 		<div class="user-content">
 			<div class="sub pdb20 pdt60 bg-sbai pdlr20">
 				<div class="userinfo disflex alignCenter">
@@ -15,7 +17,7 @@
 						<p class="font18 col-dgray">{{list.name}}</p>
 						<p class="font12 col-dgray"><span>普通会员</span><span class="mgl30">用户ID：81504588</span></p>
 						<p class="font12 col-dgray">账户安全：中</p>
-						
+
 					</div>
 				</div>
 				<div class="sub-btn mgt55 disfelx justifyCenter">
@@ -77,16 +79,17 @@
 			}
 		},
 		created: function() {
-			
+
 		},
 		mounted: function() {
-			this.list=this.$store.state.loginModule.login[1]
-			
+			this.list = this.$store.state.loginModule.login[1]
+
 		},
 		methods: {
 			routerBack() {
 				this.$router.go(-1);
 			},
+			//arrow事件
 		},
 		computed: {
 

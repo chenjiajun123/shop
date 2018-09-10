@@ -1,10 +1,12 @@
 <template>
 	<div id="address" class="height-100">
 		<v-head></v-head>
+		<!--地址标题部分-->
 		<div class="pdtb20 disflex justifyCenter alignCenter bg-dblue shop-car-title relative">
 			<h1 class="font18 col-bai disflex alignCenter"><img src="../../assets/images/icon-confirm.png" class="mgr10 icon-address-title">收货地址</h1>
 			<a class="arrow-left" @touchstart="routerBack"><img src="../../assets/images/arrow-left.png"></a>
 		</div>
+		<!--添加地址表单部分-->
 		<div class="add-address-content mgtb30 pdlr20">
 			<p class="add-address-title font16 col-dblue mgt20">新增收货地址</p>
 			<div class="message">
@@ -17,6 +19,7 @@
 				</p>
 			</div>
 		</div>
+		<!--保存地址部分-->
 		<div class="keep-address-content mgtb30 pdlr20" v-if="keeplist.length>0">
 			<p class="keep-address-title font16 col-dblue mgt20">已保存的地址</p>
 			<p class="prompt-info bg-sssbai font12 pdtb10 pdlr20 mgt20 border-yellow-all">最多保存20个有效地址，您已保存{{dizhi_length}}个有效地址，剩余{{rest_length}}个。</p>
@@ -29,7 +32,8 @@
 			</div>
 		</div>
 		<v-footer></v-footer>
-		<mt-popup position="bottom" popup-transition="popup-fade" style="width:100%;" v-model="popupVisible" >
+		<!--选择地址弹窗-->
+		<mt-popup position="bottom" popup-transition="popup-fade" style="width:100%;" v-model="popupVisible">
 			<div class="title pdtb20 disflex alignCenter justifyBetween pdlr20 relative bg-ssbai border-sgray-all">
 				<a class="font12 col-mdgray" @touchstart="cancel">取消</a>
 				<a class="font12 col-ssyellow" @touchstart="confirm">确定</a>
@@ -62,6 +66,7 @@
 				phone: '',
 				dizhiDetails: '',
 				popupVisible: false,
+				//地址控制
 				myAddressSlots: [{
 						flex: 1,
 						defaultIndex: 1,
@@ -93,7 +98,7 @@
 				myAddressProvince: '省',
 				myAddressCity: '市',
 				myAddresscounty: '区/县',
-
+				//mint-ui地址选择
 			}
 		},
 		created: function() {
@@ -111,10 +116,12 @@
 			routerBack() {
 				this.$router.go(-1);
 			},
+			//arrow返回事件
 			poPup(popupVisible) { //触发子组件城市选择-选择城市的事件
 				this.popupVisible = !this.popupVisible; //改变了父组件的值
 
 			},
+			//弹窗控制
 			onMyAddressChange(picker, values) {
 				if(myaddress[values[0]]) { //这个判断类似于v-if的效果（可以不加，但是vue会报错，很不爽）
 					picker.setSlotValues(1, Object.keys(myaddress[values[0]])); // Object.keys()会返回一个数组，当前省的数组
@@ -124,6 +131,7 @@
 					this.myAddresscounty = values[2];
 				}
 			},
+			//地址选择
 			confirm() {
 				this.popupVisible = false
 				this.dizhi = this.myAddressProvince + this.myAddressCity + this.myAddresscounty
@@ -193,6 +201,7 @@
 					}
 				}
 			},
+			//地址传递到vuex地址模块
 			Delete(list, ind) {
 
 				if(this.$store.state.addressModule.address.length >= 1) {
@@ -212,6 +221,7 @@
 				}
 				this.dizhi_length = this.$store.state.addressModule.address.length
 			},
+			//删除地址事件
 			revise(list, index) {
 				this.$router.push({
 					name: 'reviseAddress',
@@ -221,11 +231,13 @@
 					}
 				})
 			}
+			//修改地址事件
 		},
 		computed: {
 			rest_length() {
 				return 20 - this.dizhi_length
 			},
+			//剩余可添加的地址
 		},
 		filters: {
 

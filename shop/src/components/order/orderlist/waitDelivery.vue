@@ -28,7 +28,7 @@
 		},
 		created: function() {
 			this.orderAll = this.$store.state.paySuccessModule.paySuccess
-			console.log(this.orderAll)
+			
 		},
 		mounted: function() {
 

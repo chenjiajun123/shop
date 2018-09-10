@@ -1,10 +1,12 @@
 <template>
 	<div id="pay">
 		<v-head></v-head>
+		<!--支付订单标题部分-->
 		<div class="pdtb20 disflex justifyCenter alignCenter bg-dblue shop-car-title relative">
 			<h1 class="font18 col-bai disflex alignCenter"><img src="../../assets/images/icon-pay.png" class="mgr10 icon-pay-title">在线支付</h1>
 			<a class="arrow-left" @touchstart="routerBack"><img src="../../assets/images/arrow-left.png"></a>
 		</div>
+		<!--支付订单详情部分-->
 		<div class="pay-content pdlr20 pdt60 pdb20">
 			<div class="sub">
 				<h1 class="sub-title font16 col-dblue">订单已生成，请付款</h1>
@@ -24,6 +26,7 @@
 				<a class="confirm-button font16 bg-red disflex alignCenter justifyCenter mgt20 clear" @touchstart.prevent="poPup">立即支付</a>
 			</div>
 		</div>
+		<!--支付成功弹窗-->
 		<mt-popup popup-transition="popup-fade" style="width:80%;" v-model="popupVisible" v-if="paymima">
 			<div class="title pdtb10 disflex alignCenter  pdlr20 bg-dblue flex-end">
 				<a class="font12 col-bai disflex" @touchstart="cancel">X</a>
@@ -34,13 +37,16 @@
 				</div>
 				<div class="popup-right-content ">
 					<p class="font14 disflex "><span class="col-dgray">已成功付款</span><span class="col-mred">￥{{paymoney}}.00</span></p>
-					<p class="mgt20 col-dblue font12 disflex justifyAround"><span @touchstart="goon">继续购物</span><router-link to="/order" class="col-dblue">查看订单</router-link></p>
+					<p class="mgt20 col-dblue font12 disflex justifyAround"><span @touchstart="goon">继续购物</span>
+						<router-link to="/order" class="col-dblue">查看订单</router-link>
+					</p>
 					<p class="disflex justifyCenter">
 						<a class="pay-confirm-button col-bai bg-dblue disflex justifyCenter alignCenter mgt20" @touchstart="confirm">确定</a>
 					</p>
 				</div>
 			</div>
 		</mt-popup>
+		<!--支付失败弹窗-->
 		<mt-popup popup-transition="popup-fade" style="width:80%;" v-model="popupVisible" v-else>
 			<div class="title pdtb10 disflex alignCenter  pdlr20 bg-dblue flex-end">
 				<a class="font12 col-bai disflex" @touchstart="cancel">X</a>
@@ -114,19 +120,23 @@
 				this.popupVisible = false
 
 			},
+			//弹窗取消支付
 			tryAgain() {
 				this.popupVisible = false
 
 			},
+			//弹窗重新输入
 			confirm() {
-			this.$router.push({
+				this.$router.push({
 					name: 'order',
 				})
 			},
+			//弹窗确认
 			goon() {
 				this.popupVisible = false
 
 			},
+			//弹窗继续购物
 		},
 		computed: {
 

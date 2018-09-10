@@ -1,16 +1,20 @@
 <template>
 	<div id="product-details">
 		<v-head></v-head>
+		<!--产品详情标题部分-->
 		<div class="pdtb20 disflex justifyCenter alignCenter bg-dblue product-details-title relative">
 			<h1 class="font18 col-bai disflex alignCenter"><img src="../../assets/images/icon-product-one.png" class="mgr10 icon-product-title">产品介绍</h1>
 			<a class="arrow-left" @touchstart="routerBack"><img src="../../assets/images/arrow-left.png"></a>
 		</div>
+		<!--产品详情内容部分-->
 		<div class="product-details-content pdtb40 pdlr20">
+			<!--选项卡-->
 			<div class="content-tab disflex justifyBetween">
 				<a class="tab-a tab-border" :class="{Active:1==this.$route.query.tabId}">永久脱毛</a>
 				<a class="tab-a tab-border" :class="{Active:2==this.$route.query.tabId}">嫩皱去肤</a>
 				<a class="tab-a tab-border" :class="{Active:3==this.$route.query.tabId}">瘦脸提升</a>
 			</div>
+			<!--选择商品-->
 			<div class="product-details-lunbo disflex justifyCenter pdtb30 ">
 				<div class="big-pic mgr20" style="width:6.8rem;height:6.8rem;">
 					<img :src="bigPic" class="width-all" style="height: 100%;">
@@ -116,7 +120,6 @@
 				min: 1,
 				swiperOption: { //以下配置不懂的，可以去swiper官网看api，链接http://www.swiper.com.cn/api/
 					notNextTick: true, // notNextTick是一个组件自有属性，如果notNextTick设置为true，组件则不会通过NextTick来实例化swiper，也就意味着你可以在第一时间获取到swiper对象，假如你需要刚加载遍使用获取swiper对象来做什么事，那么这个属性一定要是true
-
 					direction: 'vertical',
 					grabCursor: true,
 					setWrapperSize: true,
@@ -134,7 +137,6 @@
 		},
 		created: function() {
 			this.$ajax.post('/proDetails_lunbo').then((res) => {
-				console.log(res.data[0])
 				this.proDetails_lunbo = res.data[0]
 				this.proDetails_lunbo_one = res.data[0].smpic[0]
 				this.proDetails_lunbo_two = res.data[0].smpic[5]
@@ -144,10 +146,8 @@
 			})
 		},
 		mounted: function() {
-
 			this.$ajax.post('/productDetails', {
 				id: this.$route.query.id,
-
 			}).then((res) => {
 				this.item = res.data.productDetails[0]
 				this.value = res.data.productDetails[0].funtion[0].func
@@ -160,23 +160,26 @@
 			routerBack() {
 				this.$router.go(-1);
 			},
+			//arrow事件
 			tab(list, index) {
 				this.num = index;
 				this.value = list.func
-				console.log(this.value)
 			},
+			//标签事件
 			addClassA() {
 				if(this.isB) {
 					this.isB = !this.isB
 					this.isA = !this.isA
 				}
 			},
+			//样式切换
 			addClassB() {
 				if(this.isA) {
 					this.isA = !this.isA
 					this.isB = !this.isB
 				}
 			},
+			//样式切换
 			minus() {
 				if(this.count <= this.min) {
 					return
@@ -184,12 +187,12 @@
 				this.count--
 
 			},
+			//数量减
 			add() {
-
 				this.count++
 			},
+			//数量加
 			toShopCar() {
-				
 				this.item.username = this.$store.state.loginModule.login[1].name
 				this.item.count = this.count
 				this.item.func = this.value
@@ -198,9 +201,8 @@
 						this.item,
 					)
 				}
-				
-				
 			},
+			//去购物车页面
 			toConfirm() {
 				this.item.count = this.count
 				this.$store.commit('buyOnce', {
@@ -211,6 +213,8 @@
 						name: 'confirm',
 					})
 			},
+			//去确认订单页面
+			//选择商品↓↓
 			lunbonum(item, index) {
 				this.lunboNum = index
 				this.bigPic = this.proDetails_lunbo.smpic[this.lunboNum].smpic

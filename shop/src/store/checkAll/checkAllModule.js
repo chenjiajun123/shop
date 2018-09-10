@@ -1,3 +1,4 @@
+//立即购买模块
 const state={
 	checkAll:[]
 }

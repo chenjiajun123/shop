@@ -1,17 +1,19 @@
 <template>
 	<div id="revise-address" class="height-100">
-	
+		<!--修改地址标题部分-->
 		<div class="pdtb20 disflex justifyCenter alignCenter bg-dgray reivse-address-title relative">
 			<h1 class="font18 col-bai disflex alignCenter"><img src="../../assets/images/icon-address.png" class="mgr10 icon-address-title">修改收货地址</h1>
 			<a class="arrow-left" @touchstart="routerBack"><img src="../../assets/images/arrow-left.png"></a>
 			<span class="font14 col-bai" style="position: absolute; right:0.266666rem" @touchstart="perserve">保存</span>
 		</div>
+		<!--修改地址美容部分-->
 		<div class="revise-address-content mgt20">
 			<input type="text" class="pdtb20 font12 width-all pdlr20" style="border-top: none;" v-model="list.name">
 			<input type="text" class=" pdtb20 font12 width-all pdlr20 " v-model="list.telphone">
 			<input type="text" class=" pdtb20 font12 width-all pdlr20 " v-model="dizhi" @focus="poPup()" readonly="readonly">
 			<textarea class=" font12 width-all pdlr20" style="border-bottom:solid 1px #CCCCCC;" v-model="list.dizhiDetails "></textarea>
 		</div>
+		<!--修改地址弹窗-->
 		<mt-popup position="bottom" popup-transition="popup-fade" v-model="popupVisible" lockScroll="true" style="width:100%;">
 			<div class="title pdtb20 disflex alignCenter justifyBetween pdlr20 relative bg-ssbai border-sgray-all">
 				<a class="font12 col-mdgray" @touchstart="cancel">取消</a>
@@ -19,11 +21,9 @@
 			</div>
 			<mt-picker :slots="myAddressSlots" @change="onMyAddressChange"></mt-picker>
 		</mt-popup>
-		
 	</div>
 </template>
 <script>
-	
 	import { Picker } from 'mint-ui'
 	import { Popup } from 'mint-ui'
 	import myaddress from '../../../static/address.json'
@@ -102,10 +102,12 @@
 					name: 'address',
 				})
 			},
+			//保存地址
 			poPup(popupVisible) { //触发子组件城市选择-选择城市的事件
 				this.popupVisible = !this.popupVisible; //改变了父组件的值
 
 			},
+			//地址弹窗
 			onMyAddressChange(picker, values) {
 				if(myaddress[values[0]]) { //这个判断类似于v-if的效果（可以不加，但是vue会报错，很不爽）
 					picker.setSlotValues(1, Object.keys(myaddress[values[0]])); // Object.keys()会返回一个数组，当前省的数组
@@ -115,6 +117,7 @@
 					this.myAddresscounty = values[2];
 				}
 			},
+			//地址选择
 			confirm() {
 				this.popupVisible = false
 				this.dizhi = this.myAddressProvince + this.myAddressCity + this.myAddresscounty

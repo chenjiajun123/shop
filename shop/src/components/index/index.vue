@@ -1,14 +1,15 @@
 <template>
 	<div id="index">
 		<v-head></v-head>
+		<!--主页轮播图部分-->
 		<div class="index-banner">
 			<swiper :options="swiperOption" ref="mySwiper" class="over-hiddenn" id="swiper-one">
 				<swiper-slide v-for="(ban,index,key) in banner" :index="index" :key="index" :style="{backgroundImage: 'url(' + ban + ')', backgroundSize:'cover'}" style="height:5.333333rem;width:100%;">
 				</swiper-slide>
 				<div class="swiper-pagination" slot="pagination"></div>
 			</swiper>
-
 		</div>
+		<!--主页品牌介绍部分-->
 		<div class="brand-introduction pdlr20 mgtb30">
 			<h1 class="brand-introduction-title font14 col-dblue  disflex alignCenter justifyCenter column"><span>品牌介绍</span><span class="font12 col-dblue">About us</span></h1>
 			<div class="intro-content mgt20">
@@ -21,6 +22,7 @@
 				</p>
 			</div>
 		</div>
+		<!--主页商品中心部分-->
 		<div class="product-center pdlr20 mgtb30">
 			<h1 class="product-center-title font14 col-dblue  disflex alignCenter justifyCenter column"><span>产品中心</span><span class="font12 col-dblue">product center</span></h1>
 			<div class="product-center-content">
@@ -37,6 +39,7 @@
 				</div>
 			</div>
 		</div>
+		<!--主页新闻中心部分-->
 		<div class="news-center pdlr20 mgtb30">
 			<h1 class="news-center-title font14 col-dblue  disflex alignCenter justifyCenter column"><span>新闻中心</span><span class="font12 col-dblue">news center</span></h1>
 			<div class="news-center-content mgt10 ">
@@ -55,6 +58,7 @@
 				</p>
 			</div>
 		</div>
+		<!--主页联系我们部分-->
 		<div class="contact-us pdlr20 mgt30">
 			<h1 class="contact-us-title font14 col-dblue  disflex alignCenter justifyCenter column"><span>联系我们</span><span class="font12 col-dblue">contact us</span></h1>
 			<div class="contact-us-content mgt30 disflex flex-wrap">
@@ -64,10 +68,7 @@
 				<p class="font12 disflex alignCenter mgt20"><span class="col-dgray index-span ">地址</span><input type="text" class="contact-us-input font12"></p>
 				<p class="font12 disflex alignCenter mgt20 "><span class="col-dgray ">内容</span><textarea class="contact-us-input font12" style="height: 1.333333rem;"></textarea></p>
 				<div class="font12 disflex mgt20 relative">
-					<span class="col-dgray index-span ">验证码</span>
-					<input type="text" class="index-yanzhen font12">
-					<img src="../../assets/images/yanzhen_index.png" style="width:1.266666rem;height:0.533333rem;">
-					<a class="font12 absolute col-bai bg-dblue submit-button" style="left:1.2rem;bottom:0;" @click="submit">提交</a>
+					<a class="font12 absolute col-bai bg-dblue submit-button" style="left:1.2rem;bottom:50%;" @click="submit">提交</a>
 				</div>
 				<div class="contact-us-method mgtb30">
 					<span class="font14 col-dgray pdb10 border-dblue-bottom">联系方式</span>
@@ -94,9 +95,9 @@
 		},
 		data() {
 			return {
-				name:'',
-				email:'',
-				phone:'',
+				name: '',
+				email: '',
+				phone: '',
 				indexIntro: {},
 				indexProduct: [],
 				indexNews: [],
@@ -105,13 +106,14 @@
 					require("../../assets/images/bannaerTwo.jpg"),
 					require("../../assets/images/bannaerThree.jpg")
 				],
+				//轮播图
 				swiperOption: {
 					pagination: {
 						el: '.swiper-pagination',
 					},
 					slidesPerView: 1,
-					autoplay:true,
-					loop : true,
+					autoplay: true,
+					loop: true,
 				}
 
 			}
@@ -129,7 +131,6 @@
 			})
 			this.$ajax.get('/indexNews').then((res) => {
 				this.indexNews = res.data[0]
-				console.log(this.indexNews)
 			}).catch((err) => {
 				console.log(err)
 			})
@@ -139,7 +140,7 @@
 			this.swiper.slideTo(1, 1000, false)
 		},
 		methods: {
-				submit() {
+			submit() {
 				if(!this.validate.Regusername(this.name)) {
 					Toast({
 						message: '请输入正确的姓名',
@@ -158,14 +159,14 @@
 						iconClass: 'icon icon-success'
 					});
 					return ''
-				}				
-				else {
+				} else {
 					Toast({
 						message: '提交成功',
 						iconClass: 'icon icon-success'
 					});
 				}
 			}
+			//表单提交事件
 		},
 		computed: {
 			swiper() {

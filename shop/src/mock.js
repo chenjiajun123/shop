@@ -1,4 +1,4 @@
-//mockjs数据设置
+//mockjs数据模拟设置
 const Mock = require('mockjs')
 // mockjs会拦截对应的请求地址，返回你配置的数据
 const Random = Mock.Random
