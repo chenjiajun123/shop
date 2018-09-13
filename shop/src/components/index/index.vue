@@ -49,7 +49,7 @@
 					</div>
 					<div class="right-info disflex justifyCenter column">
 						<span class="font14">{{list.title}}</span>
-						<span class="text-overflow-two col-mmgray font12">{{list.cparagraph}}</span>
+						<span class="text-overflow-two col-mmgray font12" style="-webkit-box-orient: vertical;">{{list.cparagraph}}</span>
 						<span class="col-ssgray font12">{{list.Date}}</span>
 					</div>
 				</div>
