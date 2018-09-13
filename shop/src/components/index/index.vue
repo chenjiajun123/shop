@@ -49,7 +49,7 @@
 					</div>
 					<div class="right-info disflex justifyCenter column">
 						<span class="font14">{{list.title}}</span>
-						<span class="text-overflow-two col-mmgray font12" style="-webkit-box-orient: vertical;">{{list.cparagraph}}</span>
+						<span class="text-overflow-two col-mmgray font12">{{list.cparagraph}}</span>
 						<span class="col-ssgray font12">{{list.Date}}</span>
 					</div>
 				</div>
@@ -67,8 +67,8 @@
 				<p class="font12 disflex alignCenter  mgt20"><span class="col-dgray ">邮箱</span><input type="text" class="contact-us-input font12 " v-model="email"></p>
 				<p class="font12 disflex alignCenter mgt20"><span class="col-dgray index-span ">地址</span><input type="text" class="contact-us-input font12"></p>
 				<p class="font12 disflex alignCenter mgt20 "><span class="col-dgray ">内容</span><textarea class="contact-us-input font12" style="height: 1.333333rem;"></textarea></p>
-				<div class="font12 disflex mgt20 relative">
-					<a class="font12 absolute col-bai bg-dblue submit-button" style="left:1.2rem;bottom:50%;" @click="submit">提交</a>
+				<div class="font12 disflex mgt20 ">
+					<a class="font12  col-bai bg-dblue submit-button" style="margin-left:1.2rem;" @click="submit">提交</a>
 				</div>
 				<div class="contact-us-method mgtb30">
 					<span class="font14 col-dgray pdb10 border-dblue-bottom">联系方式</span>
