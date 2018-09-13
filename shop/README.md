@@ -1,6 +1,6 @@
 # shop
 
-> A Vue.js project
+> 该项目采用了vue全家桶，是我第一个由0-1的vue项目，也体验了vue项目的开发到打包的全过程，也采用了less预编译方式和mockjs模拟数据等内容
 
 ## Build Setup
 
